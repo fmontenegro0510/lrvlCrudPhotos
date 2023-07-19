@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Concurso extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['expediente', 'caratula'];
+
+    public function postulante()
+    {
+        return $this->belongsTo(Postulante::class);
+    }
 }

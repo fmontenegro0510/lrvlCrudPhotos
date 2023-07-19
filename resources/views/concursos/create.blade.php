@@ -2,13 +2,13 @@
 
 @section('content')
     <div class="container">
-        <h1>Create Concurso</h1>
+        <h1>Crear Concurso</h1>
 
         <form action="{{ route('concursos.store', $postulante->id) }}" method="POST">
             @csrf
 
             <div class="mb-3">
-                <label for="expediente" class="form-label">Expediente</label>
+                <label for="expediente" class="form-label">Número de Expediente</label>
                 <input type="text" name="expediente" id="expediente" class="form-control" required>
             </div>
 
@@ -17,7 +17,7 @@
                 <input type="text" name="caratula" id="caratula" class="form-control" required>
             </div>
 
-            <button type="submit" class="btn btn-primary">Create</button>
+            <button type="submit" class="btn btn-primary">Crear</button>
         </form>
     </div>
 @endsection

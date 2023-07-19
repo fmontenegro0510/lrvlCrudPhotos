@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h1>Edit Postulante</h1>
+        <h1>Editar Postulante</h1>
 
         <form action="{{ route('postulantes.update', $postulante->id) }}" method="POST" enctype="multipart/form-data">
             @csrf
@@ -35,10 +35,16 @@
 
             <div class="mb-3">
                 <label for="foto" class="form-label">Foto</label>
+                @if ($postulante->foto)
+                    <p>Imagen actual:</p>
+                    <img src="{{ asset('storage/' . $postulante->foto) }}" alt="Foto de {{ $postulante->nombre }}" class="img-thumbnail" style="max-height: 200px;">
+                @else
+                    <p>Sin foto</p>
+                @endif
                 <input type="file" name="foto" id="foto" class="form-control">
             </div>
 
-            <button type="submit" class="btn btn-primary">Update</button>
+            <button type="submit" class="btn btn-primary">Actualizar</button>
         </form>
     </div>
 @endsection

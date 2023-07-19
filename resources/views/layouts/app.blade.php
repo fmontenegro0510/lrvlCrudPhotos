@@ -19,7 +19,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('postulantes.index') }}">Postulantes</a>
                     </li>
-                    <!-- Agregar aquí más enlaces de navegación si es necesario -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('concursos.index') }}">Concursos</a>
+                    </li>
                 </ul>
                 <ul class="navbar-nav ms-auto">
                     @auth
