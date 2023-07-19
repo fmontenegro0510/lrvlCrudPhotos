@@ -15,7 +15,17 @@ class CreatePostulantesTable extends Migration
     {
         Schema::create('postulantes', function (Blueprint $table) {
             $table->id();
+            $table->string('apellido');
+            $table->string('nombre');
+            $table->string('dni');
+            $table->date('fecha_matricula');
+            $table->string('domicilio');
+            $table->string('foto')->nullable();
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
         });
     }
 

@@ -15,7 +15,13 @@ class CreateConcursosTable extends Migration
     {
         Schema::create('concursos', function (Blueprint $table) {
             $table->id();
+            $table->string('expediente')->nullable();
+            $table->string('caratula')->nullable();
+            $table->unsignedBigInteger('postulante_id');
             $table->timestamps();
+
+            $table->foreign('postulante_id')->references('id')->on('postulantes')->onDelete('cascade');
+
         });
     }
 
