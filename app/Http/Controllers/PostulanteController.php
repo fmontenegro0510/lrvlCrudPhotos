@@ -58,6 +58,7 @@ class PostulanteController extends Controller
 
     public function show(Postulante $postulante)
     {
+        
         $this->authorize('view', $postulante);
 
         return view('postulantes.show', compact('postulante'));
