@@ -20,7 +20,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($postulantes as $id => $postulante)
+                @foreach ($postulantes as $postulante)
                     <tr>
                         <td>{{ $postulante->id }}</td>
                         <td>{{ $postulante->apellido }}</td>

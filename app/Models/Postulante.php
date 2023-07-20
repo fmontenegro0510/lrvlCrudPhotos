@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Postulante extends Model
 {
     use HasFactory;
-    protected $fillable = ['apellido', 'nombre', 'dni', 'fecha_matricula', 'domicilio', 'foto'];
+    protected $fillable = ['apellido', 'nombre', 'dni', 'fecha_matricula', 'domicilio', 'foto','user_id'];
 
     public function concursos()
     {

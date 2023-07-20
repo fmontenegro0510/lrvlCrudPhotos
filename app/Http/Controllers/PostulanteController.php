@@ -12,7 +12,8 @@ class PostulanteController extends Controller
     public function index()
     {
         $postulantes = Auth::user()->postulantes;
-        return view('postulantes.index')->with('postulantes', compact('postulantes'));
+        $postulantes = Postulante::with('concursos')->get();
+        return view('postulantes.index')->with('postulantes',$postulantes);
     }
 
     public function create()
@@ -29,7 +30,12 @@ class PostulanteController extends Controller
             'fecha_matricula' => 'required|date',
             'domicilio' => 'required|string|max:255',
             'foto' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            
         ]);
+
+        $request['user_id'] = Auth::id();
+
+        // dd($request);
 
         $postulante = new Postulante([
             'apellido' => $request->apellido,
@@ -37,7 +43,7 @@ class PostulanteController extends Controller
             'dni' => $request->dni,
             'fecha_matricula' => $request->fecha_matricula,
             'domicilio' => $request->domicilio,
-            'user_id' => Auth::id(),
+            'user_id' => $request->user_id
         ]);
 
         if ($request->hasFile('foto')) {
