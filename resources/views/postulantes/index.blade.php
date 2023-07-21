@@ -30,7 +30,7 @@
                         <td>{{ $postulante->domicilio }}</td>
                         <td>
                             @if ($postulante->foto)
-                                <img src="{{ asset('storage/' . $postulante->foto) }}" alt="Foto de {{ $postulante->nombre }}" class="img-thumbnail" style="max-height: 100px;">
+                                <img src="{{ asset('postulantes/' . $postulante->foto) }}" alt="Foto de {{ $postulante->nombre }}" class="img-thumbnail" style="max-height: 100px;">
                             @else
                                 Sin foto
                             @endif

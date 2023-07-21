@@ -14,7 +14,7 @@
             </div>
             <div class="col-md-6">
                 @if ($postulante->foto)
-                    <img src="{{ asset('storage/' . $postulante->foto) }}" alt="Foto de {{ $postulante->nombre }}" class="img-thumbnail" style="max-height: 200px;">
+                    <img src="{{ asset('postulantes/' . $postulante->foto) }}" alt="Foto de {{ $postulante->nombre }}" class="img-thumbnail" style="max-height: 200px;">
                 @else
                     <p>Sin foto</p>
                 @endif

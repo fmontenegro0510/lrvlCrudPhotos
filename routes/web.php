@@ -33,7 +33,11 @@ Route::middleware('auth')->group(function () {
     Route::resource('concursos', ConcursoController::class);
 
     // Rutas para los concursos de un postulante
-gi
+    Route::get('postulantes/{postulante}/concursos/create', [ConcursoController::class, 'create'])->name('concursos.create');
+    Route::post('postulantes/{postulante}/concursos', [ConcursoController::class, 'store'])->name('concursos.store');
+    Route::get('postulantes/{postulante}/concursos/{concurso}/edit', [ConcursoController::class, 'edit'])->name('concursos.edit');
+    Route::put('postulantes/{postulante}/concursos/{concurso}', [ConcursoController::class, 'update'])->name('concursos.update');
+    Route::delete('postulantes/{postulante}/concursos/{concurso}', [ConcursoController::class, 'destroy'])->name('concursos.destroy');
 
     
     Route::get('/postulantes', [PostulanteController::class, 'index'])->name('postulantes.index');
@@ -45,13 +49,13 @@ gi
     Route::delete('/postulantes/{postulante}', [PostulanteController::class, 'destroy'])->name('postulantes.destroy');
     
     // Rutas para los concursos relacionados con un postulante
-    Route::get('/postulantes/{postulante}/concursos', [ConcursoController::class, 'index'])->name('concursos.index');
-    Route::get('/postulantes/{postulante}/concursos/create', [ConcursoController::class, 'create'])->name('concursos.create');
-    Route::post('/postulantes/{postulante}/concursos', [ConcursoController::class, 'store'])->name('concursos.store');
-    Route::get('/postulantes/{postulante}/concursos/{concurso}', [ConcursoController::class, 'show'])->name('concursos.show');
-    Route::get('/postulantes/{postulante}/concursos/{concurso}/edit', [ConcursoController::class, 'edit'])->name('concursos.edit');
-    Route::put('/postulantes/{postulante}/concursos/{concurso}', [ConcursoController::class, 'update'])->name('concursos.update');
-    Route::delete('/postulantes/{postulante}/concursos/{concurso}', [ConcursoController::class, 'destroy'])->name('concursos.destroy');
+    // Route::get('/postulantes/{postulante}/concursos', [ConcursoController::class, 'index'])->name('concursos.index');
+    // Route::get('/postulantes/{postulante}/concursos/create', [ConcursoController::class, 'create'])->name('concursos.create');
+    // Route::post('/postulantes/{postulante}/concursos', [ConcursoController::class, 'store'])->name('concursos.store');
+    // Route::get('/postulantes/{postulante}/concursos/{concurso}', [ConcursoController::class, 'show'])->name('concursos.show');
+    // Route::get('/postulantes/{postulante}/concursos/{concurso}/edit', [ConcursoController::class, 'edit'])->name('concursos.edit');
+    // Route::put('/postulantes/{postulante}/concursos/{concurso}', [ConcursoController::class, 'update'])->name('concursos.update');
+    // Route::delete('/postulantes/{postulante}/concursos/{concurso}', [ConcursoController::class, 'destroy'])->name('concursos.destroy');
 
 
 
